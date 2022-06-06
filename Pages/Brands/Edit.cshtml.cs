@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using WebCars.Data;
 using WebCars.Models;
 
-namespace WebCars.Pages.Cars
+namespace WebCars.Pages.Brands
 {
     public class EditModel : PageModel
     {
@@ -21,21 +21,21 @@ namespace WebCars.Pages.Cars
         }
 
         [BindProperty]
-        public Car Car { get; set; } = default!;
+        public Brand Brand { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(Guid? id)
         {
-            if (id == null || _context.Cars == null)
+            if (id == null || _context.Brands == null)
             {
                 return NotFound();
             }
 
-            var car =  await _context.Cars.FirstOrDefaultAsync(m => m.ID == id);
-            if (car == null)
+            var brand =  await _context.Brands.FirstOrDefaultAsync(m => m.Id == id);
+            if (brand == null)
             {
                 return NotFound();
             }
-            Car = car;
+            Brand = brand;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace WebCars.Pages.Cars
                 return Page();
             }
 
-            _context.Attach(Car).State = EntityState.Modified;
+            _context.Attach(Brand).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace WebCars.Pages.Cars
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CarExists(Car.ID))
+                if (!BrandExists(Brand.Id))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace WebCars.Pages.Cars
             return RedirectToPage("./Index");
         }
 
-        private bool CarExists(int id)
+        private bool BrandExists(Guid id)
         {
-          return (_context.Cars?.Any(e => e.ID == id)).GetValueOrDefault();
+          return (_context.Brands?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

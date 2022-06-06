@@ -22,6 +22,22 @@ namespace WebCars.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("WebCars.Models.Brand", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Brands");
+                });
+
             modelBuilder.Entity("WebCars.Models.Car", b =>
                 {
                     b.Property<int>("ID")
@@ -29,6 +45,9 @@ namespace WebCars.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<Guid?>("BrandId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Discriminator")
                         .IsRequired()
@@ -50,7 +69,9 @@ namespace WebCars.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Car");
+                    b.HasIndex("BrandId");
+
+                    b.ToTable("Cars");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("Car");
                 });
@@ -63,6 +84,20 @@ namespace WebCars.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasDiscriminator().HasValue("Truck");
+                });
+
+            modelBuilder.Entity("WebCars.Models.Car", b =>
+                {
+                    b.HasOne("WebCars.Models.Brand", "Brand")
+                        .WithMany("Cars")
+                        .HasForeignKey("BrandId");
+
+                    b.Navigation("Brand");
+                });
+
+            modelBuilder.Entity("WebCars.Models.Brand", b =>
+                {
+                    b.Navigation("Cars");
                 });
 #pragma warning restore 612, 618
         }

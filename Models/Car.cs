@@ -4,7 +4,6 @@ namespace WebCars.Models
 {
     public class Car : Enty                                                     
     {
-        public int ID { get; set; }
         public string Title { get; set; } = string.Empty;
 
         [DataType(DataType.Date)]

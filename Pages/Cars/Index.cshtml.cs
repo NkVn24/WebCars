@@ -23,9 +23,9 @@ namespace WebCars.Pages.Cars
 
         public async Task OnGetAsync()
         {
-            if (_context.Car != null)
+            if (_context.Cars != null)
             {
-                Car = await _context.Car.ToListAsync();
+                Car = await _context.Cars.ToListAsync();
             }
         }
     }

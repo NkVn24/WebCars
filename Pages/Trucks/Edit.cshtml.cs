@@ -25,12 +25,12 @@ namespace WebCars.Pages.Trucks
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Truck == null)
+            if (id == null || _context.Trucks == null)
             {
                 return NotFound();
             }
 
-            var truck =  await _context.Truck.FirstOrDefaultAsync(m => m.ID == id);
+            var truck =  await _context.Trucks.FirstOrDefaultAsync(m => m.ID == id);
             if (truck == null)
             {
                 return NotFound();
@@ -71,7 +71,7 @@ namespace WebCars.Pages.Trucks
 
         private bool TruckExists(int id)
         {
-          return (_context.Truck?.Any(e => e.ID == id)).GetValueOrDefault();
+          return (_context.Trucks?.Any(e => e.ID == id)).GetValueOrDefault();
         }
     }
 }

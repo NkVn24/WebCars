@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using WebCars.Data;
 using WebCars.Models;
 
-namespace WebCars.Pages.Trucks
+namespace WebCars.Pages.Brands
 {
     public class DetailsModel : PageModel
     {
@@ -19,23 +19,23 @@ namespace WebCars.Pages.Trucks
             _context = context;
         }
 
-      public Truck Truck { get; set; } = default!; 
+      public Brand Brand { get; set; } = default!; 
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(Guid? id)
         {
-            if (id == null || _context.Trucks == null)
+            if (id == null || _context.Brands == null)
             {
                 return NotFound();
             }
 
-            var truck = await _context.Trucks.FirstOrDefaultAsync(m => m.ID == id);
-            if (truck == null)
+            var brand = await _context.Brands.FirstOrDefaultAsync(m => m.Id == id);
+            if (brand == null)
             {
                 return NotFound();
             }
             else 
             {
-                Truck = truck;
+                Brand = brand;
             }
             return Page();
         }

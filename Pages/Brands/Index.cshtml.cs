@@ -8,24 +8,24 @@ using Microsoft.EntityFrameworkCore;
 using WebCars.Data;
 using WebCars.Models;
 
-namespace WebCars.Pages.Trucks
+namespace WebCars.Pages.Brands
 {
     public class IndexModel : PageModel
     {
-        private readonly WebCars.Data.WebCarsContext _context;
+        private readonly WebCarsContext _context;
 
-        public IndexModel(WebCars.Data.WebCarsContext context)
+        public IndexModel(WebCarsContext context)
         {
             _context = context;
         }
 
-        public IList<Truck> Truck { get;set; } = default!;
+        public IList<Brand> Brand { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Trucks != null)
+            if (_context.Brands != null)
             {
-                Truck = await _context.Trucks.ToListAsync();
+                Brand = await _context.Brands.ToListAsync();
             }
         }
     }

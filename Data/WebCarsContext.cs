@@ -9,13 +9,15 @@ namespace WebCars.Data
 {
     public class WebCarsContext : DbContext
     {
-        public WebCarsContext (DbContextOptions<WebCarsContext> options)
+		public WebCarsContext(DbContextOptions<WebCarsContext> options)
             : base(options)
         {
         }
 
-        public DbSet<WebCars.Models.Car>? Car { get; set; }
+        public DbSet<Car>? Cars { get; set; }
 
-        public DbSet<WebCars.Models.Truck>? Truck { get; set; }
+        public DbSet<Truck>? Trucks { get; set; }
+
+        public DbSet<Brand> Brands { get; set; }
     }
 }

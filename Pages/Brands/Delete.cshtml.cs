@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using WebCars.Data;
 using WebCars.Models;
 
-namespace WebCars.Pages.Trucks
+namespace WebCars.Pages.Brands
 {
     public class DeleteModel : PageModel
     {
@@ -20,40 +20,40 @@ namespace WebCars.Pages.Trucks
         }
 
         [BindProperty]
-      public Truck Truck { get; set; } = default!;
+      public Brand Brand { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(Guid? id)
         {
-            if (id == null || _context.Trucks == null)
+            if (id == null || _context.Brands == null)
             {
                 return NotFound();
             }
 
-            var truck = await _context.Trucks.FirstOrDefaultAsync(m => m.ID == id);
+            var brand = await _context.Brands.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (truck == null)
+            if (brand == null)
             {
                 return NotFound();
             }
             else 
             {
-                Truck = truck;
+                Brand = brand;
             }
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync(Guid? id)
         {
-            if (id == null || _context.Trucks == null)
+            if (id == null || _context.Brands == null)
             {
                 return NotFound();
             }
-            var truck = await _context.Trucks.FindAsync(id);
+            var brand = await _context.Brands.FindAsync(id);
 
-            if (truck != null)
+            if (brand != null)
             {
-                Truck = truck;
-                _context.Trucks.Remove(Truck);
+                Brand = brand;
+                _context.Brands.Remove(Brand);
                 await _context.SaveChangesAsync();
             }
 

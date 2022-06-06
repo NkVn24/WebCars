@@ -23,12 +23,12 @@ namespace WebCars.Pages.Cars
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Car == null)
+            if (id == null || _context.Cars == null)
             {
                 return NotFound();
             }
 
-            var car = await _context.Car.FirstOrDefaultAsync(m => m.ID == id);
+            var car = await _context.Cars.FirstOrDefaultAsync(m => m.ID == id);
             if (car == null)
             {
                 return NotFound();

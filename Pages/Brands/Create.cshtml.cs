@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using WebCars.Data;
 using WebCars.Models;
 
-namespace WebCars.Pages.Cars
+namespace WebCars.Pages.Brands
 {
     public class CreateModel : PageModel
     {
@@ -25,18 +25,19 @@ namespace WebCars.Pages.Cars
         }
 
         [BindProperty]
-        public Car Car { get; set; } = default!;
+        public Brand Brand { get; set; } = default!;
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Cars == null || Car == null)
+          if (!ModelState.IsValid || _context.Brands == null || Brand == null)
             {
                 return Page();
             }
 
-            _context.Cars.Add(Car);
+          Brand.Id = Guid.NewGuid();
+            _context.Brands.Add(Brand);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

@@ -31,12 +31,12 @@ namespace WebCars.Pages.Trucks
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Truck == null || Truck == null)
+          if (!ModelState.IsValid || _context.Trucks == null || Truck == null)
             {
                 return Page();
             }
 
-            _context.Truck.Add(Truck);
+            _context.Trucks.Add(Truck);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
