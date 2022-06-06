@@ -9,8 +9,8 @@ namespace WebCars.Models
 
 		[Required(ErrorMessage ="Укажите имя.")]
 		[MaxLength(100)]
-		public string Name { get; set; }
+		public string? Name { get; set; }
 
-		public virtual ICollection<Car> Cars { get; set; }
+		public virtual ICollection<Car>? Cars { get; set; }
 	}
 }

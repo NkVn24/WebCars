@@ -18,6 +18,6 @@ namespace WebCars.Data
 
         public DbSet<Truck>? Trucks { get; set; }
 
-        public DbSet<Brand> Brands { get; set; }
+        public DbSet<Brand>? Brands { get; set; }
     }
 }
