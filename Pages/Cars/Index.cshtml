@@ -26,6 +26,12 @@
                 @Html.DisplayNameFor(model => model.Car[0].Price)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Car[0].Brake)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].RightRule)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Car[0].Brand)
             </th>
             <th></th>
@@ -35,7 +41,7 @@
 @foreach (var item in Model.Car) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
+                @item.Title
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ReleaseDate)
@@ -45,6 +51,12 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brake)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RightRule)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Brand.Name)

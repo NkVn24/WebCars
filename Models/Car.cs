@@ -10,6 +10,7 @@ namespace WebCars.Models
         [Display(Name = "Дата выпуска")]
         [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
+
         public string Genre { get; set; } = string.Empty;
         public decimal Price { get; set; }
     }

@@ -14,6 +14,10 @@ namespace WebCars.Models
 
         [Display(Name = "Тип тормозов")]
         public Brake Brake { get; set; }
+
+		[UIHint("RightRule")]        
+        [Display(Name = "Праворульная")]
+        public bool RightRule { get; set; }
     }
 
     public enum Brake

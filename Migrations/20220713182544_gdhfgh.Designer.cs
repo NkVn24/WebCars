@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebCars.Data;
 
@@ -11,9 +12,10 @@ using WebCars.Data;
 namespace WebCars.Migrations
 {
     [DbContext(typeof(WebCarsContext))]
-    partial class WebCarsContextModelSnapshot : ModelSnapshot
+    [Migration("20220713182544_gdhfgh")]
+    partial class gdhfgh
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
