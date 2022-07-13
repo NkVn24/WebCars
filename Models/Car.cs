@@ -12,6 +12,8 @@ namespace WebCars.Models
         public DateTime ReleaseDate { get; set; }
 
         public string Genre { get; set; } = string.Empty;
+
+		[DataType(DataType.Currency)]        
         public decimal Price { get; set; }
     }
 }
