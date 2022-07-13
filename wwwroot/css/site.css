@@ -23,3 +23,11 @@ option[value=""] {
     font-size: 1.2rem;
     line-height: 2;
 }
+
+.input-validation-error {
+    border-color: red;
+}
+
+.valid {
+    border-color: green;
+}
