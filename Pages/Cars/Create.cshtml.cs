@@ -21,6 +21,7 @@ namespace WebCars.Pages.Cars
 
         public IActionResult OnGet()
         {
+            ViewData["BrandId"] = new SelectList(_context.Brands, "Id", "Name");
             return Page();
         }
 

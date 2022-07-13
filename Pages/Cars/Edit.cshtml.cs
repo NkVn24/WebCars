@@ -35,9 +35,9 @@ namespace WebCars.Pages.Cars
             {
                 return NotFound();
             }
-            var values = new List<string> { "sdf", "sfg" };
-            ViewData["BrandId"] = new SelectList(values, car.BrandId);
             Car = car;
+
+            ViewData["BrandId"] = new SelectList(_context.Brands, "Id", "Name");
             return Page();
         }
 

@@ -6,6 +6,6 @@
 
         public virtual Guid? BrandId { get; set; }
 
-        public virtual Brand Brand { get; set; }
+        public virtual Brand? Brand { get; set; }
     }
 }

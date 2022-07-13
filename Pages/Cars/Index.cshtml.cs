@@ -25,7 +25,8 @@ namespace WebCars.Pages.Cars
         {
             if (_context.Cars != null)
             {
-                Car = await _context.Cars.ToListAsync();
+                Car = await _context.Cars
+                .Include(c => c.Brand).ToListAsync();
             }
         }
     }

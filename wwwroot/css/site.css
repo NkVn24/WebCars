@@ -16,3 +16,10 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+option[value=""] {
+    background-color: #000;
+    color: #ff6a00;
+    font-size: 1.2rem;
+    line-height: 2;
+}
