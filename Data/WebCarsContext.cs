@@ -17,5 +17,7 @@ namespace WebCars.Data
         public DbSet<WebCars.Models.Car>? Car { get; set; }
 
         public DbSet<WebCars.Models.Truck>? Truck { get; set; }
+
+        public DbSet<Brand>? Brand { get; set; }
     }
 }
